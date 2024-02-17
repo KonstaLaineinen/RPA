@@ -40,16 +40,17 @@ Read CSV file to list
 
 *** Test Cases ***
 Loop all invoice rows
+
     FOR    ${element}    IN    @{rows}
         Log    ${element}
-        
+
         @{items}=    Split String    ${element}    ;
         ${rowInvoiceNumber}=    Set Variable    ${items}[7]
 
         Log    ${rowInvoiceNumber}
         Log    ${InvoiceNumber}
-    END
-
+        
+    END    
     
 
 
