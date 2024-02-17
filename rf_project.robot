@@ -66,19 +66,23 @@ Read CSV file to list
     Set Global Variable    ${headers}
     Set Global Variable    ${rows}
 
-# *** Test Cases ***
-# Loop all invoice rows
+ 
+*** Test Cases ***
+Loop all invoicerows
+#Käydään läpi kaikki laskurivit
+    FOR    ${element}    IN    @{rows}
+        Log    ${element}
 
-#     FOR    ${element}    IN    @{rows}
-#         Log    ${element}
+        # jaetaan rivin data omiksi elementeiksi
+        @{items}=    Split String    ${element}    ;
 
-#         @{items}=    Split String    ${element}    ;
-#         ${rowInvoiceNumber}=    Set Variable    ${items}[7]
+        #haetaan käsiteltävän rivin laskunumero
+        ${rowInvoiceNumber}=    Set Variable    ${items}[8]
 
-#         Log    ${rowInvoiceNumber}
-#         Log    ${InvoiceNumber}
+        Log    ${rowInvoiceNumber}
+        Log    ${InvoiceNumber}
         
-#     END    
+    END
     
 
 
