@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.11.5 on win32)" generated="2024-02-17T22:10:49.845007" rpa="false" schemaversion="5">
+<suite id="s1" name="Rf Project" source="c:\Users\konst\Desktop\RPA\rf_project.robot">
+<test id="s1-t1" name="Read CSV file to list" line="27">
+<kw name="Make Connection">
+<kw name="Connect To Database" owner="DatabaseLibrary">
+<msg time="2024-02-17T22:10:50.000634" level="INFO">Connecting using : pymysql.connect(db=rpakurssi, user=konstalaineinen, passwd=***, host=localhost, port=3306, charset=None)</msg>
+<arg>pymysql</arg>
+<arg>${dbtoconnect}</arg>
+<arg>${dbuser}</arg>
+<arg>${dbpass}</arg>
+<arg>${dbhost}</arg>
+<arg>${dbport}</arg>
+<doc>Loads the DB API 2.0 module given ``dbapiModuleName`` then uses it to
+connect to the database using provided parameters such as ``dbName``, ``dbUsername``, and ``dbPassword``.</doc>
+<status status="PASS" start="2024-02-17T22:10:49.931027" elapsed="0.082514"/>
+</kw>
+<arg>${dbname}</arg>
+<status status="PASS" start="2024-02-17T22:10:49.930000" elapsed="0.084073"/>
+</kw>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-02-17T22:10:50.015613" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\konst\Desktop\RPA\InvoiceHeaderData.csv"&gt;C:\Users\konst\Desktop\RPA\InvoiceHeaderData.csv&lt;/a&gt;'.</msg>
+<msg time="2024-02-17T22:10:50.016125" level="INFO">${outputHeader} = ﻿InvoiceNumber;CompanyName;ReferenceNumber;InvoiceDate;DueDate;CompanyCode;BankAccountNumber;AmountExclVat;VATamount;TotalAmount
+"143143
+";Service Provider Oy;" 1431432
+";15.12.2022;07.04.2021;1234567...</msg>
+<var>${outputHeader}</var>
+<arg>${PATH}InvoiceHeaderData.csv</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.015103" elapsed="0.001536"/>
+</kw>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-02-17T22:10:50.017664" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\konst\Desktop\RPA\InvoiceRowData.csv"&gt;C:\Users\konst\Desktop\RPA\InvoiceRowData.csv&lt;/a&gt;'.</msg>
+<msg time="2024-02-17T22:10:50.018181" level="INFO">${outputRows} = ﻿Description;Quantity;Unit;UnitPrice;VATpercent;VAT;TotalSum;InvoiceNumber;RowNumber
+Installation Services;5;h;60;24;72;372;1;
+Replacement Products;10;kpl;105;24;252;1302;2;
+Keyboard Logitech;10;kpl;4...</msg>
+<var>${outputRows}</var>
+<arg>${PATH}InvoiceRowData.csv</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.017149" elapsed="0.001032"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.019203" level="INFO">﻿InvoiceNumber;CompanyName;ReferenceNumber;InvoiceDate;DueDate;CompanyCode;BankAccountNumber;AmountExclVat;VATamount;TotalAmount
+"143143
+";Service Provider Oy;" 1431432
+";15.12.2022;07.04.2021;1234567-8;" FI12 3456 7890 1234 56
+";1350;324;1674
+" 1543235
+";Component  Oy;"15432359
+";01.10.2022;15.10.2022;1234567-9;": FI05 1234 5600 7891 01
+";465;111.6;576.6
+"153143
+";Service Provider Oy;" 1531439
+";15.12.2022;01.04.2021;1234567-8;" FI12 3456 7890 1234 56
+";2700;648;3348
+</msg>
+<arg>${outputHeader}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.019203" elapsed="0.000514"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.020228" level="INFO">﻿Description;Quantity;Unit;UnitPrice;VATpercent;VAT;TotalSum;InvoiceNumber;RowNumber
+Installation Services;5;h;60;24;72;372;1;
+Replacement Products;10;kpl;105;24;252;1302;2;
+Keyboard Logitech;10;kpl;40;24;96;496;1;
+Brother printer;1;kpl;65;24;15.6;80.6;2;
+Installation Services;5;h;60;24;72;372;1;
+Replacement Products;10;kpl;105;24;252;1302;2;
+Cleaning Services;5;h;60;24;72;372;3;
+Cleaning Wipes;10;kpl;105;24;252;1302;4;
+</msg>
+<arg>${outputRows}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.019717" elapsed="0.000511"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2024-02-17T22:10:50.021253" level="INFO">@{headers} = [ ﻿InvoiceNumber;CompanyName;ReferenceNumber;InvoiceDate;DueDate;CompanyCode;BankAccountNumber;AmountExclVat;VATamount;TotalAmount | "143143 | ";Service Provider Oy;" 1431432 | ";15.12.2022;07.04.2021...</msg>
+<var>@{headers}</var>
+<arg>${outputHeader}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.020742" elapsed="0.001026"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2024-02-17T22:10:50.022792" level="INFO">@{rows} = [ ﻿Description;Quantity;Unit;UnitPrice;VATpercent;VAT;TotalSum;InvoiceNumber;RowNumber | Installation Services;5;h;60;24;72;372;1; | Replacement Products;10;kpl;105;24;252;1302;2; | Keyboard Logitech;...</msg>
+<var>@{rows}</var>
+<arg>${outputRows}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.022278" elapsed="0.001024"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.024341" level="INFO">${headers} = ['\ufeffInvoiceNumber;CompanyName;ReferenceNumber;InvoiceDate;DueDate;CompanyCode;BankAccountNumber;AmountExclVat;VATamount;TotalAmount', '"143143', '";Service Provider Oy;" 1431432', '";15.12.2022;07...</msg>
+<arg>${headers}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.023814" elapsed="0.000527"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.025364" level="INFO">${rows} = ['\ufeffDescription;Quantity;Unit;UnitPrice;VATpercent;VAT;TotalSum;InvoiceNumber;RowNumber', 'Installation Services;5;h;60;24;72;372;1;', 'Replacement Products;10;kpl;105;24;252;1302;2;', 'Keyboard L...</msg>
+<arg>${rows}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.024850" elapsed="0.000514"/>
+</kw>
+<status status="PASS" start="2024-02-17T22:10:49.929489" elapsed="0.096897"/>
+</test>
+<test id="s1-t2" name="Loop all invoice rows" line="42">
+<for flavor="IN">
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.028530" level="INFO">﻿Description;Quantity;Unit;UnitPrice;VATpercent;VAT;TotalSum;InvoiceNumber;RowNumber</msg>
+<arg>${element}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.028530" elapsed="0.000510"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2024-02-17T22:10:50.030069" level="INFO">@{items} = [ ﻿Description | Quantity | Unit | UnitPrice | VATpercent | VAT | TotalSum | InvoiceNumber | RowNumber ]</msg>
+<var>@{items}</var>
+<arg>${element}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.029552" elapsed="0.000517"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.030579" level="INFO">${rowInvoiceNumber} = InvoiceNumber</msg>
+<var>${rowInvoiceNumber}</var>
+<arg>${items}[7]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.030069" elapsed="0.000510"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.031094" level="INFO">InvoiceNumber</msg>
+<arg>${rowInvoiceNumber}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.031094" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.031609" level="INFO">empty</msg>
+<arg>${InvoiceNumber}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.031609" elapsed="0.000000"/>
+</kw>
+<var name="${element}">﻿Description;Quantity;Unit;UnitPrice;VATpercent;VAT;TotalSum;InvoiceNumber;RowNumber</var>
+<status status="PASS" start="2024-02-17T22:10:50.028027" elapsed="0.004098"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.032638" level="INFO">Installation Services;5;h;60;24;72;372;1;</msg>
+<arg>${element}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.032638" elapsed="0.000515"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2024-02-17T22:10:50.033664" level="INFO">@{items} = [ Installation Services | 5 | h | 60 | 24 | 72 | 372 | 1 |  ]</msg>
+<var>@{items}</var>
+<arg>${element}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.033153" elapsed="0.000511"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.034174" level="INFO">${rowInvoiceNumber} = 1</msg>
+<var>${rowInvoiceNumber}</var>
+<arg>${items}[7]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.033664" elapsed="0.000510"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.034701" level="INFO">1</msg>
+<arg>${rowInvoiceNumber}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.034701" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.035211" level="INFO">empty</msg>
+<arg>${InvoiceNumber}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.035211" elapsed="0.000000"/>
+</kw>
+<var name="${element}">Installation Services;5;h;60;24;72;372;1;</var>
+<status status="PASS" start="2024-02-17T22:10:50.032125" elapsed="0.003086"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.036228" level="INFO">Replacement Products;10;kpl;105;24;252;1302;2;</msg>
+<arg>${element}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.035720" elapsed="0.000508"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2024-02-17T22:10:50.036738" level="INFO">@{items} = [ Replacement Products | 10 | kpl | 105 | 24 | 252 | 1302 | 2 |  ]</msg>
+<var>@{items}</var>
+<arg>${element}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.036228" elapsed="0.000510"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.037247" level="INFO">${rowInvoiceNumber} = 2</msg>
+<var>${rowInvoiceNumber}</var>
+<arg>${items}[7]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.036738" elapsed="0.000509"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.037756" level="INFO">2</msg>
+<arg>${rowInvoiceNumber}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.037247" elapsed="0.000509"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.038269" level="INFO">empty</msg>
+<arg>${InvoiceNumber}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.037756" elapsed="0.000513"/>
+</kw>
+<var name="${element}">Replacement Products;10;kpl;105;24;252;1302;2;</var>
+<status status="PASS" start="2024-02-17T22:10:50.035720" elapsed="0.002549"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.038782" level="INFO">Keyboard Logitech;10;kpl;40;24;96;496;1;</msg>
+<arg>${element}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.038782" elapsed="0.000510"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2024-02-17T22:10:50.039803" level="INFO">@{items} = [ Keyboard Logitech | 10 | kpl | 40 | 24 | 96 | 496 | 1 |  ]</msg>
+<var>@{items}</var>
+<arg>${element}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.039292" elapsed="0.000511"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.040319" level="INFO">${rowInvoiceNumber} = 1</msg>
+<var>${rowInvoiceNumber}</var>
+<arg>${items}[7]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.039803" elapsed="0.000516"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.040829" level="INFO">1</msg>
+<arg>${rowInvoiceNumber}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.040319" elapsed="0.000510"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.041341" level="INFO">empty</msg>
+<arg>${InvoiceNumber}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.040829" elapsed="0.000512"/>
+</kw>
+<var name="${element}">Keyboard Logitech;10;kpl;40;24;96;496;1;</var>
+<status status="PASS" start="2024-02-17T22:10:50.038269" elapsed="0.003072"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.041855" level="INFO">Brother printer;1;kpl;65;24;15.6;80.6;2;</msg>
+<arg>${element}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.041855" elapsed="0.000000"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2024-02-17T22:10:50.042364" level="INFO">@{items} = [ Brother printer | 1 | kpl | 65 | 24 | 15.6 | 80.6 | 2 |  ]</msg>
+<var>@{items}</var>
+<arg>${element}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.042364" elapsed="0.000622"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.043490" level="INFO">${rowInvoiceNumber} = 2</msg>
+<var>${rowInvoiceNumber}</var>
+<arg>${items}[7]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.042986" elapsed="0.000504"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.044019" level="INFO">2</msg>
+<arg>${rowInvoiceNumber}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.044019" elapsed="0.000512"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.044531" level="INFO">empty</msg>
+<arg>${InvoiceNumber}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.044531" elapsed="0.000512"/>
+</kw>
+<var name="${element}">Brother printer;1;kpl;65;24;15.6;80.6;2;</var>
+<status status="PASS" start="2024-02-17T22:10:50.041341" elapsed="0.003702"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.045552" level="INFO">Installation Services;5;h;60;24;72;372;1;</msg>
+<arg>${element}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.045552" elapsed="0.000000"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2024-02-17T22:10:50.046064" level="INFO">@{items} = [ Installation Services | 5 | h | 60 | 24 | 72 | 372 | 1 |  ]</msg>
+<var>@{items}</var>
+<arg>${element}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.046064" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.046576" level="INFO">${rowInvoiceNumber} = 1</msg>
+<var>${rowInvoiceNumber}</var>
+<arg>${items}[7]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.046576" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.047086" level="INFO">1</msg>
+<arg>${rowInvoiceNumber}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.047086" elapsed="0.000514"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.048109" level="INFO">empty</msg>
+<arg>${InvoiceNumber}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.048109" elapsed="0.000000"/>
+</kw>
+<var name="${element}">Installation Services;5;h;60;24;72;372;1;</var>
+<status status="PASS" start="2024-02-17T22:10:50.045043" elapsed="0.003580"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.049136" level="INFO">Replacement Products;10;kpl;105;24;252;1302;2;</msg>
+<arg>${element}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.049136" elapsed="0.000000"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2024-02-17T22:10:50.049645" level="INFO">@{items} = [ Replacement Products | 10 | kpl | 105 | 24 | 252 | 1302 | 2 |  ]</msg>
+<var>@{items}</var>
+<arg>${element}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.049645" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.050153" level="INFO">${rowInvoiceNumber} = 2</msg>
+<var>${rowInvoiceNumber}</var>
+<arg>${items}[7]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.050153" elapsed="0.000517"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.051180" level="INFO">2</msg>
+<arg>${rowInvoiceNumber}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.050670" elapsed="0.000510"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.051689" level="INFO">empty</msg>
+<arg>${InvoiceNumber}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.051180" elapsed="0.000509"/>
+</kw>
+<var name="${element}">Replacement Products;10;kpl;105;24;252;1302;2;</var>
+<status status="PASS" start="2024-02-17T22:10:50.048623" elapsed="0.003066"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.052715" level="INFO">Cleaning Services;5;h;60;24;72;372;3;</msg>
+<arg>${element}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.052199" elapsed="0.000516"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2024-02-17T22:10:50.053224" level="INFO">@{items} = [ Cleaning Services | 5 | h | 60 | 24 | 72 | 372 | 3 |  ]</msg>
+<var>@{items}</var>
+<arg>${element}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.052715" elapsed="0.000509"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.053736" level="INFO">${rowInvoiceNumber} = 3</msg>
+<var>${rowInvoiceNumber}</var>
+<arg>${items}[7]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.053224" elapsed="0.000512"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.054258" level="INFO">3</msg>
+<arg>${rowInvoiceNumber}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.053736" elapsed="0.000522"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.054768" level="INFO">empty</msg>
+<arg>${InvoiceNumber}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.054258" elapsed="0.000510"/>
+</kw>
+<var name="${element}">Cleaning Services;5;h;60;24;72;372;3;</var>
+<status status="PASS" start="2024-02-17T22:10:50.052199" elapsed="0.002569"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.055278" level="INFO">Cleaning Wipes;10;kpl;105;24;252;1302;4;</msg>
+<arg>${element}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.055278" elapsed="0.000000"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2024-02-17T22:10:50.055786" level="INFO">@{items} = [ Cleaning Wipes | 10 | kpl | 105 | 24 | 252 | 1302 | 4 |  ]</msg>
+<var>@{items}</var>
+<arg>${element}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.055786" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.056291" level="INFO">${rowInvoiceNumber} = 4</msg>
+<var>${rowInvoiceNumber}</var>
+<arg>${items}[7]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.056291" elapsed="0.000510"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.056801" level="INFO">4</msg>
+<arg>${rowInvoiceNumber}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.056801" elapsed="0.000509"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.057310" level="INFO">empty</msg>
+<arg>${InvoiceNumber}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.057310" elapsed="0.000510"/>
+</kw>
+<var name="${element}">Cleaning Wipes;10;kpl;105;24;252;1302;4;</var>
+<status status="PASS" start="2024-02-17T22:10:50.055278" elapsed="0.002642"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.058424" level="INFO"/>
+<arg>${element}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.058424" elapsed="0.000000"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2024-02-17T22:10:50.058939" level="INFO">@{items} = [  ]</msg>
+<var>@{items}</var>
+<arg>${element}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2024-02-17T22:10:50.058939" elapsed="0.000514"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-02-17T22:10:50.059453" level="FAIL">List '${items}' has no item in index 7.</msg>
+<var>${rowInvoiceNumber}</var>
+<arg>${items}[7]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="FAIL" start="2024-02-17T22:10:50.059453" elapsed="0.001024">List '${items}' has no item in index 7.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${rowInvoiceNumber}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-02-17T22:10:50.060994" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${InvoiceNumber}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-02-17T22:10:50.060994" elapsed="0.000515"/>
+</kw>
+<var name="${element}"/>
+<status status="FAIL" start="2024-02-17T22:10:50.057920" elapsed="0.003589">List '${items}' has no item in index 7.</status>
+</iter>
+<var>${element}</var>
+<value>@{rows}</value>
+<status status="FAIL" start="2024-02-17T22:10:50.028027" elapsed="0.033994">List '${items}' has no item in index 7.</status>
+</for>
+<status status="FAIL" start="2024-02-17T22:10:50.027406" elapsed="0.035640">List '${items}' has no item in index 7.</status>
+</test>
+<status status="FAIL" start="2024-02-17T22:10:49.852273" elapsed="0.213341"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="1" skip="0" id="s1" name="Rf Project">Rf Project</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
