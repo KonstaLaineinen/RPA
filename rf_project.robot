@@ -100,7 +100,7 @@ Read CSV file to list
  
 *** Test Cases ***
 Loop all invoicerows
-#Käydään läpi kaikki laskurivit
+    #Käydään läpi kaikki laskurivit
     FOR    ${element}    IN    @{rows}
         Log    ${element}
 
@@ -113,11 +113,11 @@ Loop all invoicerows
         Log    ${rowInvoiceNumber}
         Log    ${InvoiceNumber}
     
-        IF    '${rowInvoiceNumber}' == '${InvoiceNumber}'
+        IF    "${rowInvoiceNumber}" == "${InvoiceNumber}"
             
             Log    Lisätään rivejä laskulle
 
-            Add row data to list    ${items}
+            Add Row Data To List    ${items}
 
         ELSE
             Log    Pitää tutkia onko tietokantalistassa jo rivejä
@@ -134,17 +134,17 @@ Loop all invoicerows
                 # Etsi laskun otsikkorivi
                 FOR    ${headerElement}    IN    @{headers}
                     ${headerItems}=    Split String    ${headerElement}    ;
-                    IF    '${headerItems}[0]' == '${InvoiceNumber}'
-                            Log    Lasku löytyi
-                            #Validointi
+                    IF    "${headerItems}[0]" == "${InvoiceNumber}"
+                        Log  Lasku löytyi
+                        #Validointi
 
-                            # Syötä laskun otsikkorivi tietokantaan
-                            Add invoice header to db    ${headerItems}
-                            # Syötä laskun rivit tietokantaan
-                            FOR    ${rowElement}    IN    @{ListToDB}
-                                Add Invoice Row To DB    ${rowElement}
+                         # Syötä laskun otsikkorivi tietokantaan
+                         Add invoice header to db    ${headerItems}
+                        # Syötä laskun rivit tietokantaan
+                        FOR    ${rowElement}    IN    @{ListToDB}
+                            Add Invoice Row To DB    ${rowElement}
                                 
-                            END
+                        END
 
                     END
                     
