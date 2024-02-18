@@ -1,47 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.11.5 on win32)" generated="2024-02-17T23:18:39.839045" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0 (Python 3.11.5 on win32)" generated="2024-02-18T12:00:38.607083" rpa="false" schemaversion="5">
 <suite id="s1" name="Rf Project" source="c:\Users\konst\Desktop\RPA\RPA\rf_project.robot">
-<test id="s1-t1" name="Read CSV file to list" line="27">
-<kw name="Make Connection">
-<kw name="Connect To Database" owner="DatabaseLibrary">
-<msg time="2024-02-17T23:18:39.988535" level="INFO">Connecting using : pymysql.connect(db=rpakurssi, user=konstalaineinen, passwd=***, host=localhost, port=3306, charset=None)</msg>
-<arg>pymysql</arg>
-<arg>${dbtoconnect}</arg>
-<arg>${dbuser}</arg>
-<arg>${dbpass}</arg>
-<arg>${dbhost}</arg>
-<arg>${dbport}</arg>
-<doc>Loads the DB API 2.0 module given ``dbapiModuleName`` then uses it to
-connect to the database using provided parameters such as ``dbName``, ``dbUsername``, and ``dbPassword``.</doc>
-<status status="PASS" start="2024-02-17T23:18:39.925154" elapsed="0.073721"/>
-</kw>
-<arg>${dbname}</arg>
-<status status="PASS" start="2024-02-17T23:18:39.924643" elapsed="0.074744"/>
-</kw>
+<test id="s1-t1" name="Read CSV file to list" line="58">
 <kw name="Get File" owner="OperatingSystem">
-<msg time="2024-02-17T23:18:40.000413" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\konst\Desktop\RPA\InvoiceHeaderData.csv"&gt;C:\Users\konst\Desktop\RPA\InvoiceHeaderData.csv&lt;/a&gt;'.</msg>
-<msg time="2024-02-17T23:18:40.000925" level="INFO">${outputHeader} = ﻿InvoiceNumber;CompanyName;ReferenceNumber;InvoiceDate;DueDate;CompanyCode;BankAccountNumber;AmountExclVat;VATamount;TotalAmount
+<msg time="2024-02-18T12:00:38.660342" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\konst\Desktop\RPA\InvoiceHeaderData.csv"&gt;C:\Users\konst\Desktop\RPA\InvoiceHeaderData.csv&lt;/a&gt;'.</msg>
+<msg time="2024-02-18T12:00:38.662860" level="INFO">${outputHeader} = ﻿InvoiceNumber;CompanyName;ReferenceNumber;InvoiceDate;DueDate;CompanyCode;BankAccountNumber;AmountExclVat;VATamount;TotalAmount
 "143143
 ";Service Provider Oy;" 1431432
 ";15.12.2022;07.04.2021;1234567...</msg>
 <var>${outputHeader}</var>
 <arg>${PATH}InvoiceHeaderData.csv</arg>
 <doc>Returns the contents of a specified file.</doc>
-<status status="PASS" start="2024-02-17T23:18:39.999899" elapsed="0.001026"/>
+<status status="PASS" start="2024-02-18T12:00:38.660342" elapsed="0.002518"/>
 </kw>
 <kw name="Get File" owner="OperatingSystem">
-<msg time="2024-02-17T23:18:40.001948" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\konst\Desktop\RPA\InvoiceRowData.csv"&gt;C:\Users\konst\Desktop\RPA\InvoiceRowData.csv&lt;/a&gt;'.</msg>
-<msg time="2024-02-17T23:18:40.002459" level="INFO">${outputRows} = ﻿Description;Quantity;Unit;UnitPrice;VATpercent;VAT;TotalSum;InvoiceNumber;RowNumber
+<msg time="2024-02-18T12:00:38.663860" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\konst\Desktop\RPA\InvoiceRowData.csv"&gt;C:\Users\konst\Desktop\RPA\InvoiceRowData.csv&lt;/a&gt;'.</msg>
+<msg time="2024-02-18T12:00:38.664861" level="INFO">${outputRows} = ﻿Description;Quantity;Unit;UnitPrice;VATpercent;VAT;TotalSum;InvoiceNumber;RowNumber
 Installation Services;5;h;60;24;72;372;1;
 Replacement Products;10;kpl;105;24;252;1302;2;
 Keyboard Logitech;10;kpl;4...</msg>
 <var>${outputRows}</var>
 <arg>${PATH}InvoiceRowData.csv</arg>
 <doc>Returns the contents of a specified file.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.001436" elapsed="0.001023"/>
+<status status="PASS" start="2024-02-18T12:00:38.663860" elapsed="0.001001"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.003482" level="INFO">﻿InvoiceNumber;CompanyName;ReferenceNumber;InvoiceDate;DueDate;CompanyCode;BankAccountNumber;AmountExclVat;VATamount;TotalAmount
+<msg time="2024-02-18T12:00:38.665862" level="INFO">﻿InvoiceNumber;CompanyName;ReferenceNumber;InvoiceDate;DueDate;CompanyCode;BankAccountNumber;AmountExclVat;VATamount;TotalAmount
 "143143
 ";Service Provider Oy;" 1431432
 ";15.12.2022;07.04.2021;1234567-8;" FI12 3456 7890 1234 56
@@ -57,10 +41,10 @@ Keyboard Logitech;10;kpl;4...</msg>
 </msg>
 <arg>${outputHeader}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.002971" elapsed="0.000511"/>
+<status status="PASS" start="2024-02-18T12:00:38.664861" elapsed="0.001001"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.004511" level="INFO">﻿Description;Quantity;Unit;UnitPrice;VATpercent;VAT;TotalSum;InvoiceNumber;RowNumber
+<msg time="2024-02-18T12:00:38.665862" level="INFO">﻿Description;Quantity;Unit;UnitPrice;VATpercent;VAT;TotalSum;InvoiceNumber;RowNumber
 Installation Services;5;h;60;24;72;372;1;
 Replacement Products;10;kpl;105;24;252;1302;2;
 Keyboard Logitech;10;kpl;40;24;96;496;1;
@@ -72,623 +56,932 @@ Cleaning Wipes;10;kpl;105;24;252;1302;4;
 </msg>
 <arg>${outputRows}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.003991" elapsed="0.000520"/>
+<status status="PASS" start="2024-02-18T12:00:38.665862" elapsed="0.001000"/>
 </kw>
 <kw name="Split String" owner="String">
-<msg time="2024-02-17T23:18:40.005534" level="INFO">@{headers} = [ ﻿InvoiceNumber;CompanyName;ReferenceNumber;InvoiceDate;DueDate;CompanyCode;BankAccountNumber;AmountExclVat;VATamount;TotalAmount | "143143 | ";Service Provider Oy;" 1431432 | ";15.12.2022;07.04.2021...</msg>
+<msg time="2024-02-18T12:00:38.666862" level="INFO">@{headers} = [ ﻿InvoiceNumber;CompanyName;ReferenceNumber;InvoiceDate;DueDate;CompanyCode;BankAccountNumber;AmountExclVat;VATamount;TotalAmount | "143143 | ";Service Provider Oy;" 1431432 | ";15.12.2022;07.04.2021...</msg>
 <var>@{headers}</var>
 <arg>${outputHeader}</arg>
 <arg>\n</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.005021" elapsed="0.000513"/>
+<status status="PASS" start="2024-02-18T12:00:38.666862" elapsed="0.000000"/>
 </kw>
 <kw name="Split String" owner="String">
-<msg time="2024-02-17T23:18:40.006553" level="INFO">@{rows} = [ ﻿Description;Quantity;Unit;UnitPrice;VATpercent;VAT;TotalSum;InvoiceNumber;RowNumber | Installation Services;5;h;60;24;72;372;1; | Replacement Products;10;kpl;105;24;252;1302;2; | Keyboard Logitech;...</msg>
+<msg time="2024-02-18T12:00:38.667864" level="INFO">@{rows} = [ ﻿Description;Quantity;Unit;UnitPrice;VATpercent;VAT;TotalSum;InvoiceNumber;RowNumber | Installation Services;5;h;60;24;72;372;1; | Replacement Products;10;kpl;105;24;252;1302;2; | Keyboard Logitech;...</msg>
 <var>@{rows}</var>
 <arg>${outputRows}</arg>
 <arg>\n</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.006043" elapsed="0.000510"/>
+<status status="PASS" start="2024-02-18T12:00:38.667864" elapsed="0.000000"/>
 </kw>
 <kw name="Get Length" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.007069" level="INFO">Length is 14.</msg>
-<msg time="2024-02-17T23:18:40.007583" level="INFO">${length} = 14</msg>
+<msg time="2024-02-18T12:00:38.667864" level="INFO">Length is 14.</msg>
+<msg time="2024-02-18T12:00:38.667864" level="INFO">${length} = 14</msg>
 <var>${length}</var>
 <arg>${headers}</arg>
 <doc>Returns and logs the length of the given item as an integer.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.007069" elapsed="0.000514"/>
+<status status="PASS" start="2024-02-18T12:00:38.667864" elapsed="0.000000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.008607" level="INFO">${length} = 13</msg>
+<msg time="2024-02-18T12:00:38.669367" level="INFO">${length} = 13</msg>
 <var>${length}</var>
 <arg>${length}-1</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.008095" elapsed="0.000512"/>
+<status status="PASS" start="2024-02-18T12:00:38.669367" elapsed="0.001011"/>
 </kw>
 <kw name="Convert To Integer" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.009630" level="INFO">${index} = 0</msg>
+<msg time="2024-02-18T12:00:38.670378" level="INFO">${index} = 0</msg>
 <var>${index}</var>
 <arg>0</arg>
 <doc>Converts the given item to an integer number.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.009117" elapsed="0.000513"/>
+<status status="PASS" start="2024-02-18T12:00:38.670378" elapsed="0.000000"/>
 </kw>
 <kw name="Remove From List" owner="Collections">
 <arg>${headers}</arg>
 <arg>${length}</arg>
 <doc>Removes and returns the value specified with an ``index`` from ``list``.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.010144" elapsed="0.000515"/>
+<status status="PASS" start="2024-02-18T12:00:38.670378" elapsed="0.001504"/>
 </kw>
 <kw name="Remove From List" owner="Collections">
 <arg>${headers}</arg>
 <arg>${index}</arg>
 <doc>Removes and returns the value specified with an ``index`` from ``list``.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.011170" elapsed="0.000000"/>
+<status status="PASS" start="2024-02-18T12:00:38.671882" elapsed="0.000000"/>
 </kw>
 <kw name="Get Length" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.012800" level="INFO">Length is 10.</msg>
-<msg time="2024-02-17T23:18:40.012800" level="INFO">${length} = 10</msg>
+<msg time="2024-02-18T12:00:38.672895" level="INFO">Length is 10.</msg>
+<msg time="2024-02-18T12:00:38.672895" level="INFO">${length} = 10</msg>
 <var>${length}</var>
 <arg>${rows}</arg>
 <doc>Returns and logs the length of the given item as an integer.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.012286" elapsed="0.000514"/>
+<status status="PASS" start="2024-02-18T12:00:38.671882" elapsed="0.001013"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.014337" level="INFO">${length} = 9</msg>
+<msg time="2024-02-18T12:00:38.672895" level="INFO">${length} = 9</msg>
 <var>${length}</var>
 <arg>${length}-1</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.013826" elapsed="0.000511"/>
+<status status="PASS" start="2024-02-18T12:00:38.672895" elapsed="0.001001"/>
 </kw>
 <kw name="Remove From List" owner="Collections">
 <arg>${rows}</arg>
 <arg>${length}</arg>
 <doc>Removes and returns the value specified with an ``index`` from ``list``.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.014860" elapsed="0.000512"/>
+<status status="PASS" start="2024-02-18T12:00:38.673896" elapsed="0.000000"/>
 </kw>
 <kw name="Remove From List" owner="Collections">
 <arg>${rows}</arg>
 <arg>${index}</arg>
 <doc>Removes and returns the value specified with an ``index`` from ``list``.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.015886" elapsed="0.000512"/>
+<status status="PASS" start="2024-02-18T12:00:38.674897" elapsed="0.000000"/>
 </kw>
 <for flavor="IN">
 <iter>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.017927" level="INFO">"143143</msg>
+<msg time="2024-02-18T12:00:38.675898" level="INFO">"143143</msg>
 <arg>${element}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.017416" elapsed="0.000511"/>
+<status status="PASS" start="2024-02-18T12:00:38.675898" elapsed="0.000000"/>
 </kw>
 <var name="${element}">"143143</var>
-<status status="PASS" start="2024-02-17T23:18:40.017416" elapsed="0.000511"/>
+<status status="PASS" start="2024-02-18T12:00:38.675898" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.018949" level="INFO">";Service Provider Oy;" 1431432</msg>
+<msg time="2024-02-18T12:00:38.676898" level="INFO">";Service Provider Oy;" 1431432</msg>
 <arg>${element}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.018436" elapsed="0.000513"/>
+<status status="PASS" start="2024-02-18T12:00:38.676898" elapsed="0.000000"/>
 </kw>
 <var name="${element}">";Service Provider Oy;" 1431432</var>
-<status status="PASS" start="2024-02-17T23:18:40.018436" elapsed="0.000513"/>
+<status status="PASS" start="2024-02-18T12:00:38.676898" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.019461" level="INFO">";15.12.2022;07.04.2021;1234567-8;" FI12 3456 7890 1234 56</msg>
+<msg time="2024-02-18T12:00:38.677899" level="INFO">";15.12.2022;07.04.2021;1234567-8;" FI12 3456 7890 1234 56</msg>
 <arg>${element}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.018949" elapsed="0.000512"/>
+<status status="PASS" start="2024-02-18T12:00:38.677899" elapsed="0.000000"/>
 </kw>
 <var name="${element}">";15.12.2022;07.04.2021;1234567-8;" FI12 3456 7890 1234 56</var>
-<status status="PASS" start="2024-02-17T23:18:40.018949" elapsed="0.000512"/>
+<status status="PASS" start="2024-02-18T12:00:38.676898" elapsed="0.001001"/>
 </iter>
 <iter>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.019977" level="INFO">";1350;324;1674</msg>
+<msg time="2024-02-18T12:00:38.677899" level="INFO">";1350;324;1674</msg>
 <arg>${element}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.019977" elapsed="0.000000"/>
+<status status="PASS" start="2024-02-18T12:00:38.677899" elapsed="0.000000"/>
 </kw>
 <var name="${element}">";1350;324;1674</var>
-<status status="PASS" start="2024-02-17T23:18:40.019461" elapsed="0.000516"/>
+<status status="PASS" start="2024-02-18T12:00:38.677899" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.020490" level="INFO">" 1543235</msg>
+<msg time="2024-02-18T12:00:38.679403" level="INFO">" 1543235</msg>
 <arg>${element}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.020490" elapsed="0.000000"/>
+<status status="PASS" start="2024-02-18T12:00:38.679403" elapsed="0.000000"/>
 </kw>
 <var name="${element}">" 1543235</var>
-<status status="PASS" start="2024-02-17T23:18:40.019977" elapsed="0.000513"/>
+<status status="PASS" start="2024-02-18T12:00:38.679403" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.021005" level="INFO">";Component  Oy;"15432359</msg>
+<msg time="2024-02-18T12:00:38.680412" level="INFO">";Component  Oy;"15432359</msg>
 <arg>${element}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.021005" elapsed="0.000000"/>
+<status status="PASS" start="2024-02-18T12:00:38.679403" elapsed="0.001009"/>
 </kw>
 <var name="${element}">";Component  Oy;"15432359</var>
-<status status="PASS" start="2024-02-17T23:18:40.021005" elapsed="0.000000"/>
+<status status="PASS" start="2024-02-18T12:00:38.679403" elapsed="0.001009"/>
 </iter>
 <iter>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.021520" level="INFO">";01.10.2022;15.10.2022;1234567-9;": FI05 1234 5600 7891 01</msg>
+<msg time="2024-02-18T12:00:38.680412" level="INFO">";01.10.2022;15.10.2022;1234567-9;": FI05 1234 5600 7891 01</msg>
 <arg>${element}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.021520" elapsed="0.000000"/>
+<status status="PASS" start="2024-02-18T12:00:38.680412" elapsed="0.000000"/>
 </kw>
 <var name="${element}">";01.10.2022;15.10.2022;1234567-9;": FI05 1234 5600 7891 01</var>
-<status status="PASS" start="2024-02-17T23:18:40.021520" elapsed="0.000512"/>
+<status status="PASS" start="2024-02-18T12:00:38.680412" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.022032" level="INFO">";465;111.6;576.6</msg>
+<msg time="2024-02-18T12:00:38.680412" level="INFO">";465;111.6;576.6</msg>
 <arg>${element}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.022032" elapsed="0.000511"/>
+<status status="PASS" start="2024-02-18T12:00:38.680412" elapsed="0.000000"/>
 </kw>
 <var name="${element}">";465;111.6;576.6</var>
-<status status="PASS" start="2024-02-17T23:18:40.022032" elapsed="0.000511"/>
+<status status="PASS" start="2024-02-18T12:00:38.680412" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.023053" level="INFO">"153143</msg>
+<msg time="2024-02-18T12:00:38.681915" level="INFO">"153143</msg>
 <arg>${element}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.022543" elapsed="0.000510"/>
+<status status="PASS" start="2024-02-18T12:00:38.680412" elapsed="0.001503"/>
 </kw>
 <var name="${element}">"153143</var>
-<status status="PASS" start="2024-02-17T23:18:40.022543" elapsed="0.000510"/>
+<status status="PASS" start="2024-02-18T12:00:38.680412" elapsed="0.001503"/>
 </iter>
 <iter>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.023566" level="INFO">";Service Provider Oy;" 1531439</msg>
+<msg time="2024-02-18T12:00:38.681915" level="INFO">";Service Provider Oy;" 1531439</msg>
 <arg>${element}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.023566" elapsed="0.000000"/>
+<status status="PASS" start="2024-02-18T12:00:38.681915" elapsed="0.000000"/>
 </kw>
 <var name="${element}">";Service Provider Oy;" 1531439</var>
-<status status="PASS" start="2024-02-17T23:18:40.023053" elapsed="0.000513"/>
+<status status="PASS" start="2024-02-18T12:00:38.681915" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.024093" level="INFO">";15.12.2022;01.04.2021;1234567-8;" FI12 3456 7890 1234 56</msg>
+<msg time="2024-02-18T12:00:38.682927" level="INFO">";15.12.2022;01.04.2021;1234567-8;" FI12 3456 7890 1234 56</msg>
 <arg>${element}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.024093" elapsed="0.000000"/>
+<status status="PASS" start="2024-02-18T12:00:38.682927" elapsed="0.000000"/>
 </kw>
 <var name="${element}">";15.12.2022;01.04.2021;1234567-8;" FI12 3456 7890 1234 56</var>
-<status status="PASS" start="2024-02-17T23:18:40.024093" elapsed="0.000509"/>
+<status status="PASS" start="2024-02-18T12:00:38.681915" elapsed="0.001012"/>
 </iter>
 <iter>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.025115" level="INFO">";2700;648;3348</msg>
+<msg time="2024-02-18T12:00:38.682927" level="INFO">";2700;648;3348</msg>
 <arg>${element}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.024602" elapsed="0.000513"/>
+<status status="PASS" start="2024-02-18T12:00:38.682927" elapsed="0.000000"/>
 </kw>
 <var name="${element}">";2700;648;3348</var>
-<status status="PASS" start="2024-02-17T23:18:40.024602" elapsed="0.000513"/>
+<status status="PASS" start="2024-02-18T12:00:38.682927" elapsed="0.000000"/>
 </iter>
 <var>${element}</var>
 <value>@{headers}</value>
-<status status="PASS" start="2024-02-17T23:18:40.016907" elapsed="0.008208"/>
+<status status="PASS" start="2024-02-18T12:00:38.674897" elapsed="0.008030"/>
 </for>
 <for flavor="IN">
 <iter>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.026137" level="INFO">Installation Services;5;h;60;24;72;372;1;</msg>
+<msg time="2024-02-18T12:00:38.683929" level="INFO">Installation Services;5;h;60;24;72;372;1;</msg>
 <arg>${element}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.026137" elapsed="0.000627"/>
+<status status="PASS" start="2024-02-18T12:00:38.683929" elapsed="0.000000"/>
 </kw>
 <var name="${element}">Installation Services;5;h;60;24;72;372;1;</var>
-<status status="PASS" start="2024-02-17T23:18:40.025623" elapsed="0.001141"/>
+<status status="PASS" start="2024-02-18T12:00:38.683929" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.027267" level="INFO">Replacement Products;10;kpl;105;24;252;1302;2;</msg>
+<msg time="2024-02-18T12:00:38.684929" level="INFO">Replacement Products;10;kpl;105;24;252;1302;2;</msg>
 <arg>${element}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.026764" elapsed="0.000503"/>
+<status status="PASS" start="2024-02-18T12:00:38.684929" elapsed="0.000000"/>
 </kw>
 <var name="${element}">Replacement Products;10;kpl;105;24;252;1302;2;</var>
-<status status="PASS" start="2024-02-17T23:18:40.026764" elapsed="0.000503"/>
+<status status="PASS" start="2024-02-18T12:00:38.684929" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.027780" level="INFO">Keyboard Logitech;10;kpl;40;24;96;496;1;</msg>
+<msg time="2024-02-18T12:00:38.684929" level="INFO">Keyboard Logitech;10;kpl;40;24;96;496;1;</msg>
 <arg>${element}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.027780" elapsed="0.000515"/>
+<status status="PASS" start="2024-02-18T12:00:38.684929" elapsed="0.000000"/>
 </kw>
 <var name="${element}">Keyboard Logitech;10;kpl;40;24;96;496;1;</var>
-<status status="PASS" start="2024-02-17T23:18:40.027780" elapsed="0.000515"/>
+<status status="PASS" start="2024-02-18T12:00:38.684929" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.028806" level="INFO">Brother printer;1;kpl;65;24;15.6;80.6;2;</msg>
+<msg time="2024-02-18T12:00:38.685930" level="INFO">Brother printer;1;kpl;65;24;15.6;80.6;2;</msg>
 <arg>${element}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.028806" elapsed="0.000000"/>
+<status status="PASS" start="2024-02-18T12:00:38.685930" elapsed="0.000000"/>
 </kw>
 <var name="${element}">Brother printer;1;kpl;65;24;15.6;80.6;2;</var>
-<status status="PASS" start="2024-02-17T23:18:40.028295" elapsed="0.001022"/>
+<status status="PASS" start="2024-02-18T12:00:38.685930" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.029828" level="INFO">Installation Services;5;h;60;24;72;372;1;</msg>
+<msg time="2024-02-18T12:00:38.685930" level="INFO">Installation Services;5;h;60;24;72;372;1;</msg>
 <arg>${element}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.029317" elapsed="0.000511"/>
+<status status="PASS" start="2024-02-18T12:00:38.685930" elapsed="0.000000"/>
 </kw>
 <var name="${element}">Installation Services;5;h;60;24;72;372;1;</var>
-<status status="PASS" start="2024-02-17T23:18:40.029317" elapsed="0.000511"/>
+<status status="PASS" start="2024-02-18T12:00:38.685930" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.030347" level="INFO">Replacement Products;10;kpl;105;24;252;1302;2;</msg>
+<msg time="2024-02-18T12:00:38.686931" level="INFO">Replacement Products;10;kpl;105;24;252;1302;2;</msg>
 <arg>${element}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.030347" elapsed="0.000512"/>
+<status status="PASS" start="2024-02-18T12:00:38.686931" elapsed="0.000000"/>
 </kw>
 <var name="${element}">Replacement Products;10;kpl;105;24;252;1302;2;</var>
-<status status="PASS" start="2024-02-17T23:18:40.030347" elapsed="0.000512"/>
+<status status="PASS" start="2024-02-18T12:00:38.686931" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.031368" level="INFO">Cleaning Services;5;h;60;24;72;372;3;</msg>
+<msg time="2024-02-18T12:00:38.686931" level="INFO">Cleaning Services;5;h;60;24;72;372;3;</msg>
 <arg>${element}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.030859" elapsed="0.000509"/>
+<status status="PASS" start="2024-02-18T12:00:38.686931" elapsed="0.000000"/>
 </kw>
 <var name="${element}">Cleaning Services;5;h;60;24;72;372;3;</var>
-<status status="PASS" start="2024-02-17T23:18:40.030859" elapsed="0.001020"/>
+<status status="PASS" start="2024-02-18T12:00:38.686931" elapsed="0.000000"/>
 </iter>
 <iter>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.032392" level="INFO">Cleaning Wipes;10;kpl;105;24;252;1302;4;</msg>
+<msg time="2024-02-18T12:00:38.687932" level="INFO">Cleaning Wipes;10;kpl;105;24;252;1302;4;</msg>
 <arg>${element}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.031879" elapsed="0.000513"/>
+<status status="PASS" start="2024-02-18T12:00:38.687932" elapsed="0.000000"/>
 </kw>
 <var name="${element}">Cleaning Wipes;10;kpl;105;24;252;1302;4;</var>
-<status status="PASS" start="2024-02-17T23:18:40.031879" elapsed="0.000513"/>
+<status status="PASS" start="2024-02-18T12:00:38.687932" elapsed="0.000000"/>
 </iter>
 <var>${element}</var>
 <value>@{rows}</value>
-<status status="PASS" start="2024-02-17T23:18:40.025623" elapsed="0.006769"/>
+<status status="PASS" start="2024-02-18T12:00:38.683929" elapsed="0.004003"/>
 </for>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.033415" level="INFO">${headers} = ['"143143', '";Service Provider Oy;" 1431432', '";15.12.2022;07.04.2021;1234567-8;" FI12 3456 7890 1234 56', '\r";1350;324;1674', '" 1543235', '";Component  Oy;"15432359', '";01.10.2022;15.10.2022;123...</msg>
+<msg time="2024-02-18T12:00:38.689538" level="INFO">${headers} = ['"143143', '";Service Provider Oy;" 1431432', '";15.12.2022;07.04.2021;1234567-8;" FI12 3456 7890 1234 56', '\r";1350;324;1674', '" 1543235', '";Component  Oy;"15432359', '";01.10.2022;15.10.2022;123...</msg>
 <arg>${headers}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.033415" elapsed="0.000512"/>
+<status status="PASS" start="2024-02-18T12:00:38.687932" elapsed="0.001606"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.034958" level="INFO">${rows} = ['Installation Services;5;h;60;24;72;372;1;', 'Replacement Products;10;kpl;105;24;252;1302;2;', 'Keyboard Logitech;10;kpl;40;24;96;496;1;', 'Brother printer;1;kpl;65;24;15.6;80.6;2;', 'Installation Se...</msg>
+<msg time="2024-02-18T12:00:38.690540" level="INFO">${rows} = ['Installation Services;5;h;60;24;72;372;1;', 'Replacement Products;10;kpl;105;24;252;1302;2;', 'Keyboard Logitech;10;kpl;40;24;96;496;1;', 'Brother printer;1;kpl;65;24;15.6;80.6;2;', 'Installation Se...</msg>
 <arg>${rows}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.034450" elapsed="0.000508"/>
+<status status="PASS" start="2024-02-18T12:00:38.689538" elapsed="0.001002"/>
 </kw>
-<status status="PASS" start="2024-02-17T23:18:39.923610" elapsed="0.111859"/>
+<status status="PASS" start="2024-02-18T12:00:38.659331" elapsed="0.031209"/>
 </test>
-<test id="s1-t2" name="Loop all invoicerows" line="71">
+<test id="s1-t2" name="Loop all invoicerows" line="102">
 <for flavor="IN">
 <iter>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.037508" level="INFO">Installation Services;5;h;60;24;72;372;1;</msg>
+<msg time="2024-02-18T12:00:38.693056" level="INFO">Installation Services;5;h;60;24;72;372;1;</msg>
 <arg>${element}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.036997" elapsed="0.000511"/>
+<status status="PASS" start="2024-02-18T12:00:38.693056" elapsed="0.000000"/>
 </kw>
 <kw name="Split String" owner="String">
-<msg time="2024-02-17T23:18:40.038016" level="INFO">@{items} = [ Installation Services | 5 | h | 60 | 24 | 72 | 372 | 1 |  ]</msg>
+<msg time="2024-02-18T12:00:38.694059" level="INFO">@{items} = [ Installation Services | 5 | h | 60 | 24 | 72 | 372 | 1 |  ]</msg>
 <var>@{items}</var>
 <arg>${element}</arg>
 <arg>;</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.037508" elapsed="0.000508"/>
+<status status="PASS" start="2024-02-18T12:00:38.693056" elapsed="0.001003"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.038527" level="INFO">${rowInvoiceNumber} = </msg>
+<msg time="2024-02-18T12:00:38.694059" level="INFO">${rowInvoiceNumber} = 1</msg>
 <var>${rowInvoiceNumber}</var>
-<arg>${items}[8]</arg>
+<arg>${items}[7]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.038016" elapsed="0.000511"/>
+<status status="PASS" start="2024-02-18T12:00:38.694059" elapsed="0.000999"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.039040" level="INFO"/>
+<msg time="2024-02-18T12:00:38.695058" level="INFO">1</msg>
 <arg>${rowInvoiceNumber}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.039040" elapsed="0.000512"/>
+<status status="PASS" start="2024-02-18T12:00:38.695058" elapsed="0.000000"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.039552" level="INFO">empty</msg>
+<msg time="2024-02-18T12:00:38.696060" level="INFO">empty</msg>
 <arg>${InvoiceNumber}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.039552" elapsed="0.000512"/>
+<status status="PASS" start="2024-02-18T12:00:38.695058" elapsed="0.001002"/>
 </kw>
+<if>
+<branch type="IF" condition="'${rowInvoiceNumber}' == '${InvoiceNumber}'">
+<kw name="Log" owner="BuiltIn">
+<arg>Lisätään rivejä laskulle</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-02-18T12:00:38.696060" elapsed="0.000000"/>
+</kw>
+<kw name="Add row data to list">
+<arg>${items}</arg>
+<status status="NOT RUN" start="2024-02-18T12:00:38.696060" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-02-18T12:00:38.696060" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-18T12:00:38.697060" level="INFO">Pitää tutkia onko tietokantalistassa jo rivejä</msg>
+<arg>Pitää tutkia onko tietokantalistassa jo rivejä</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-18T12:00:38.697060" elapsed="0.000000"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2024-02-18T12:00:38.697060" level="INFO">Length is 0.</msg>
+<msg time="2024-02-18T12:00:38.697060" level="INFO">${length} = 0</msg>
+<var>${length}</var>
+<arg>${ListToDB}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2024-02-18T12:00:38.697060" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="${length} == ${0}">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-18T12:00:38.698061" level="INFO">Ensimmäisen laskun tapaus</msg>
+<arg>Ensimmäisen laskun tapaus</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-18T12:00:38.698061" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-02-18T12:00:38.698061" level="INFO">${InvoiceNumber} = 1</msg>
+<var>${InvoiceNumber}</var>
+<arg>${rowInvoiceNumber}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-02-18T12:00:38.698061" elapsed="0.000000"/>
+</kw>
+<kw name="Add row data to list">
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-02-18T12:00:38.699564" level="INFO">@{AddInvoiceRowData} = [ ]</msg>
+<var>@{AddInvoiceRowData}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-02-18T12:00:38.698061" elapsed="0.001503"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${AddInvoiceRowData}</arg>
+<arg>${InvoiceNumber}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-02-18T12:00:38.699564" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${AddInvoiceRowData}</arg>
+<arg>${items}[5]</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-02-18T12:00:38.699564" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${AddInvoiceRowData}</arg>
+<arg>${items}[0]</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-02-18T12:00:38.699564" elapsed="0.001009"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${AddInvoiceRowData}</arg>
+<arg>${items}[1]</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-02-18T12:00:38.700573" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${AddInvoiceRowData}</arg>
+<arg>${items}[2]</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-02-18T12:00:38.700573" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${AddInvoiceRowData}</arg>
+<arg>${items}[3]</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-02-18T12:00:38.700573" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${AddInvoiceRowData}</arg>
+<arg>${items}[4]</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-02-18T12:00:38.700573" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${AddInvoiceRowData}</arg>
+<arg>${items}[5]</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-02-18T12:00:38.700573" elapsed="0.001502"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${AddInvoiceRowData}</arg>
+<arg>${items}[5]</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-02-18T12:00:38.702075" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${ListToDB}</arg>
+<arg>${AddInvoiceRowData}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-02-18T12:00:38.702075" elapsed="0.000000"/>
+</kw>
+<arg>${items}</arg>
+<status status="PASS" start="2024-02-18T12:00:38.698061" elapsed="0.004014"/>
+</kw>
+<status status="PASS" start="2024-02-18T12:00:38.697060" elapsed="0.005015"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" owner="BuiltIn">
+<arg>Lasku vaihtuu</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-02-18T12:00:38.703097" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Split String" owner="String">
+<var>${headerItems}</var>
+<arg>${headerElement}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="NOT RUN" start="2024-02-18T12:00:38.703097" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="'${headerItems}[0]' == '${InvoiceNumber}'">
+<kw name="Log" owner="BuiltIn">
+<arg>Lasku löytyi</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-02-18T12:00:38.703097" elapsed="0.001001"/>
+</kw>
+<kw name="Add invoice header to db">
+<arg>${headerItems}</arg>
+<status status="NOT RUN" start="2024-02-18T12:00:38.704098" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Add Invoice Row To DB">
+<arg>${rowElement}</arg>
+<status status="NOT RUN" start="2024-02-18T12:00:38.704753" elapsed="0.000000"/>
+</kw>
+<var name="${rowElement}"/>
+<status status="NOT RUN" start="2024-02-18T12:00:38.704098" elapsed="0.000655"/>
+</iter>
+<var>${rowElement}</var>
+<value>@{ListToDB}</value>
+<status status="NOT RUN" start="2024-02-18T12:00:38.704098" elapsed="0.000655"/>
+</for>
+<status status="NOT RUN" start="2024-02-18T12:00:38.703097" elapsed="0.002160"/>
+</branch>
+<status status="NOT RUN" start="2024-02-18T12:00:38.703097" elapsed="0.002160"/>
+</if>
+<var name="${headerElement}"/>
+<status status="NOT RUN" start="2024-02-18T12:00:38.703097" elapsed="0.002160"/>
+</iter>
+<var>${headerElement}</var>
+<value>@{headers}</value>
+<status status="NOT RUN" start="2024-02-18T12:00:38.703097" elapsed="0.002160"/>
+</for>
+<kw name="Create List" owner="BuiltIn">
+<var>@{ListToDB}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="NOT RUN" start="2024-02-18T12:00:38.705257" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<arg>${ListToDB}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" start="2024-02-18T12:00:38.705776" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${InvoiceNumber}</var>
+<arg>${rowInvoiceNumber}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-02-18T12:00:38.705776" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<arg>${InvoiceNumber}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-02-18T12:00:38.705776" elapsed="0.000513"/>
+</kw>
+<kw name="Add row data to list">
+<arg>$items</arg>
+<status status="NOT RUN" start="2024-02-18T12:00:38.706289" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-02-18T12:00:38.702075" elapsed="0.004214"/>
+</branch>
+<status status="PASS" start="2024-02-18T12:00:38.697060" elapsed="0.009229"/>
+</if>
+<status status="PASS" start="2024-02-18T12:00:38.697060" elapsed="0.009229"/>
+</branch>
+<status status="PASS" start="2024-02-18T12:00:38.696060" elapsed="0.010229"/>
+</if>
 <var name="${element}">Installation Services;5;h;60;24;72;372;1;</var>
-<status status="PASS" start="2024-02-17T23:18:40.036997" elapsed="0.003067"/>
+<status status="PASS" start="2024-02-18T12:00:38.693056" elapsed="0.013233"/>
 </iter>
 <iter>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.040582" level="INFO">Replacement Products;10;kpl;105;24;252;1302;2;</msg>
+<msg time="2024-02-18T12:00:38.707314" level="INFO">Replacement Products;10;kpl;105;24;252;1302;2;</msg>
 <arg>${element}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.040582" elapsed="0.000000"/>
+<status status="PASS" start="2024-02-18T12:00:38.706801" elapsed="0.000513"/>
 </kw>
 <kw name="Split String" owner="String">
-<msg time="2024-02-17T23:18:40.041091" level="INFO">@{items} = [ Replacement Products | 10 | kpl | 105 | 24 | 252 | 1302 | 2 |  ]</msg>
+<msg time="2024-02-18T12:00:38.707314" level="INFO">@{items} = [ Replacement Products | 10 | kpl | 105 | 24 | 252 | 1302 | 2 |  ]</msg>
 <var>@{items}</var>
 <arg>${element}</arg>
 <arg>;</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.040582" elapsed="0.000509"/>
+<status status="PASS" start="2024-02-18T12:00:38.707314" elapsed="0.000000"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.041602" level="INFO">${rowInvoiceNumber} = </msg>
+<msg time="2024-02-18T12:00:38.707830" level="INFO">${rowInvoiceNumber} = 2</msg>
 <var>${rowInvoiceNumber}</var>
-<arg>${items}[8]</arg>
+<arg>${items}[7]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.041602" elapsed="0.000000"/>
+<status status="PASS" start="2024-02-18T12:00:38.707830" elapsed="0.000000"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.042727" level="INFO"/>
+<msg time="2024-02-18T12:00:38.708342" level="INFO">2</msg>
 <arg>${rowInvoiceNumber}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.042223" elapsed="0.000504"/>
+<status status="PASS" start="2024-02-18T12:00:38.707830" elapsed="0.000512"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.043241" level="INFO">empty</msg>
+<msg time="2024-02-18T12:00:38.708342" level="INFO">1</msg>
 <arg>${InvoiceNumber}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.042727" elapsed="0.000514"/>
+<status status="PASS" start="2024-02-18T12:00:38.708342" elapsed="0.000510"/>
 </kw>
+<if>
+<branch type="IF" condition="'${rowInvoiceNumber}' == '${InvoiceNumber}'">
+<kw name="Log" owner="BuiltIn">
+<arg>Lisätään rivejä laskulle</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-02-18T12:00:38.708852" elapsed="0.000000"/>
+</kw>
+<kw name="Add row data to list">
+<arg>${items}</arg>
+<status status="NOT RUN" start="2024-02-18T12:00:38.709359" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-02-18T12:00:38.708852" elapsed="0.000507"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-18T12:00:38.709876" level="INFO">Pitää tutkia onko tietokantalistassa jo rivejä</msg>
+<arg>Pitää tutkia onko tietokantalistassa jo rivejä</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-18T12:00:38.709359" elapsed="0.000517"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2024-02-18T12:00:38.709876" level="INFO">Length is 1.</msg>
+<msg time="2024-02-18T12:00:38.709876" level="INFO">${length} = 1</msg>
+<var>${length}</var>
+<arg>${ListToDB}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2024-02-18T12:00:38.709876" elapsed="0.000512"/>
+</kw>
+<if>
+<branch type="IF" condition="${length} == ${0}">
+<kw name="Log" owner="BuiltIn">
+<arg>Ensimmäisen laskun tapaus</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-02-18T12:00:38.710388" elapsed="0.000516"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${InvoiceNumber}</var>
+<arg>${rowInvoiceNumber}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-02-18T12:00:38.710904" elapsed="0.000000"/>
+</kw>
+<kw name="Add row data to list">
+<arg>${items}</arg>
+<status status="NOT RUN" start="2024-02-18T12:00:38.710904" elapsed="0.000513"/>
+</kw>
+<status status="NOT RUN" start="2024-02-18T12:00:38.710388" elapsed="0.001029"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-18T12:00:38.711417" level="INFO">Lasku vaihtuu</msg>
+<arg>Lasku vaihtuu</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-18T12:00:38.711417" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Split String" owner="String">
+<msg time="2024-02-18T12:00:38.712439" level="INFO">${headerItems} = ['"143143']</msg>
+<var>${headerItems}</var>
+<arg>${headerElement}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2024-02-18T12:00:38.711932" elapsed="0.000507"/>
+</kw>
+<if>
+<branch type="IF" condition="'${headerItems}[0]' == '${InvoiceNumber}'">
+<kw name="Log" owner="BuiltIn">
+<arg>Lasku löytyi</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-02-18T12:00:38.712954" elapsed="0.000000"/>
+</kw>
+<kw name="Add invoice header to db">
+<arg>${headerItems}</arg>
+<status status="NOT RUN" start="2024-02-18T12:00:38.712954" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Add Invoice Row To DB">
+<arg>${rowElement}</arg>
+<status status="NOT RUN" start="2024-02-18T12:00:38.713468" elapsed="0.000000"/>
+</kw>
+<var name="${rowElement}"/>
+<status status="NOT RUN" start="2024-02-18T12:00:38.712954" elapsed="0.000514"/>
+</iter>
+<var>${rowElement}</var>
+<value>@{ListToDB}</value>
+<status status="NOT RUN" start="2024-02-18T12:00:38.712954" elapsed="0.000514"/>
+</for>
+<status status="NOT RUN" start="2024-02-18T12:00:38.712439" elapsed="0.001029"/>
+</branch>
+<status status="PASS" start="2024-02-18T12:00:38.712439" elapsed="0.001545"/>
+</if>
+<var name="${headerElement}">"143143</var>
+<status status="PASS" start="2024-02-18T12:00:38.711932" elapsed="0.002052"/>
+</iter>
+<iter>
+<kw name="Split String" owner="String">
+<msg time="2024-02-18T12:00:38.714502" level="INFO">${headerItems} = ['"', 'Service Provider Oy', '" 1431432']</msg>
+<var>${headerItems}</var>
+<arg>${headerElement}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2024-02-18T12:00:38.713984" elapsed="0.000518"/>
+</kw>
+<if>
+<branch type="IF" condition="'${headerItems}[0]' == '${InvoiceNumber}'">
+<kw name="Log" owner="BuiltIn">
+<arg>Lasku löytyi</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-02-18T12:00:38.715020" elapsed="0.000000"/>
+</kw>
+<kw name="Add invoice header to db">
+<arg>${headerItems}</arg>
+<status status="NOT RUN" start="2024-02-18T12:00:38.715020" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Add Invoice Row To DB">
+<arg>${rowElement}</arg>
+<status status="NOT RUN" start="2024-02-18T12:00:38.715536" elapsed="0.000000"/>
+</kw>
+<var name="${rowElement}"/>
+<status status="NOT RUN" start="2024-02-18T12:00:38.715020" elapsed="0.000516"/>
+</iter>
+<var>${rowElement}</var>
+<value>@{ListToDB}</value>
+<status status="NOT RUN" start="2024-02-18T12:00:38.715020" elapsed="0.000516"/>
+</for>
+<status status="NOT RUN" start="2024-02-18T12:00:38.714502" elapsed="0.001553"/>
+</branch>
+<status status="PASS" start="2024-02-18T12:00:38.714502" elapsed="0.001553"/>
+</if>
+<var name="${headerElement}">";Service Provider Oy;" 1431432</var>
+<status status="PASS" start="2024-02-18T12:00:38.713984" elapsed="0.002071"/>
+</iter>
+<iter>
+<kw name="Split String" owner="String">
+<msg time="2024-02-18T12:00:38.716570" level="INFO">${headerItems} = ['"', '15.12.2022', '07.04.2021', '1234567-8', '" FI12 3456 7890 1234 56']</msg>
+<var>${headerItems}</var>
+<arg>${headerElement}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2024-02-18T12:00:38.716055" elapsed="0.000515"/>
+</kw>
+<if>
+<branch type="IF" condition="'${headerItems}[0]' == '${InvoiceNumber}'">
+<kw name="Log" owner="BuiltIn">
+<arg>Lasku löytyi</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-02-18T12:00:38.716570" elapsed="0.000519"/>
+</kw>
+<kw name="Add invoice header to db">
+<arg>${headerItems}</arg>
+<status status="NOT RUN" start="2024-02-18T12:00:38.717089" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Add Invoice Row To DB">
+<arg>${rowElement}</arg>
+<status status="NOT RUN" start="2024-02-18T12:00:38.717089" elapsed="0.000520"/>
+</kw>
+<var name="${rowElement}"/>
+<status status="NOT RUN" start="2024-02-18T12:00:38.717089" elapsed="0.000520"/>
+</iter>
+<var>${rowElement}</var>
+<value>@{ListToDB}</value>
+<status status="NOT RUN" start="2024-02-18T12:00:38.717089" elapsed="0.000520"/>
+</for>
+<status status="NOT RUN" start="2024-02-18T12:00:38.716570" elapsed="0.001039"/>
+</branch>
+<status status="PASS" start="2024-02-18T12:00:38.716570" elapsed="0.001039"/>
+</if>
+<var name="${headerElement}">";15.12.2022;07.04.2021;1234567-8;" FI12 3456 7890 1234 56</var>
+<status status="PASS" start="2024-02-18T12:00:38.716055" elapsed="0.001554"/>
+</iter>
+<iter>
+<kw name="Split String" owner="String">
+<msg time="2024-02-18T12:00:38.718127" level="INFO">${headerItems} = ['\r"', '1350', '324', '1674']</msg>
+<var>${headerItems}</var>
+<arg>${headerElement}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2024-02-18T12:00:38.718127" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="'${headerItems}[0]' == '${InvoiceNumber}'">
+<kw name="Log" owner="BuiltIn">
+<arg>Lasku löytyi</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-02-18T12:00:38.718649" elapsed="0.000000"/>
+</kw>
+<kw name="Add invoice header to db">
+<arg>${headerItems}</arg>
+<status status="NOT RUN" start="2024-02-18T12:00:38.718649" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Add Invoice Row To DB">
+<arg>${rowElement}</arg>
+<status status="NOT RUN" start="2024-02-18T12:00:38.719160" elapsed="0.000000"/>
+</kw>
+<var name="${rowElement}"/>
+<status status="NOT RUN" start="2024-02-18T12:00:38.719160" elapsed="0.000000"/>
+</iter>
+<var>${rowElement}</var>
+<value>@{ListToDB}</value>
+<status status="NOT RUN" start="2024-02-18T12:00:38.718649" elapsed="0.000511"/>
+</for>
+<msg time="2024-02-18T12:00:38.719160" level="FAIL">Invalid IF condition: Evaluating expression '\'\r"\' == \'1\'' failed: SyntaxError: unterminated string literal (detected at line 1) (&lt;string&gt;, line 1)
+
+Variables in the original expression "'${headerItems}[0]' == '${InvoiceNumber}'" were resolved before the expression was evaluated. Try using "'$headerItems' == '${InvoiceNumber}'' == '$InvoiceNumber'" syntax to avoid that. See Evaluating Expressions appendix in Robot Framework User Guide for more details.</msg>
+<status status="FAIL" start="2024-02-18T12:00:38.718127" elapsed="0.001551">Invalid IF condition: Evaluating expression '\'\r"\' == \'1\'' failed: SyntaxError: unterminated string literal (detected at line 1) (&lt;string&gt;, line 1)
+
+Variables in the original expression "'${headerItems}[0]' == '${InvoiceNumber}'" were resolved before the expression was evaluated. Try using "'$headerItems' == '${InvoiceNumber}'' == '$InvoiceNumber'" syntax to avoid that. See Evaluating Expressions appendix in Robot Framework User Guide for more details.</status>
+</branch>
+<status status="FAIL" start="2024-02-18T12:00:38.718127" elapsed="0.002148">Invalid IF condition: Evaluating expression '\'\r"\' == \'1\'' failed: SyntaxError: unterminated string literal (detected at line 1) (&lt;string&gt;, line 1)
+
+Variables in the original expression "'${headerItems}[0]' == '${InvoiceNumber}'" were resolved before the expression was evaluated. Try using "'$headerItems' == '${InvoiceNumber}'' == '$InvoiceNumber'" syntax to avoid that. See Evaluating Expressions appendix in Robot Framework User Guide for more details.</status>
+</if>
+<var name="${headerElement}">";1350;324;1674</var>
+<status status="FAIL" start="2024-02-18T12:00:38.717609" elapsed="0.002666">Invalid IF condition: Evaluating expression '\'\r"\' == \'1\'' failed: SyntaxError: unterminated string literal (detected at line 1) (&lt;string&gt;, line 1)
+
+Variables in the original expression "'${headerItems}[0]' == '${InvoiceNumber}'" were resolved before the expression was evaluated. Try using "'$headerItems' == '${InvoiceNumber}'' == '$InvoiceNumber'" syntax to avoid that. See Evaluating Expressions appendix in Robot Framework User Guide for more details.</status>
+</iter>
+<var>${headerElement}</var>
+<value>@{headers}</value>
+<status status="FAIL" start="2024-02-18T12:00:38.711932" elapsed="0.008343">Invalid IF condition: Evaluating expression '\'\r"\' == \'1\'' failed: SyntaxError: unterminated string literal (detected at line 1) (&lt;string&gt;, line 1)
+
+Variables in the original expression "'${headerItems}[0]' == '${InvoiceNumber}'" were resolved before the expression was evaluated. Try using "'$headerItems' == '${InvoiceNumber}'' == '$InvoiceNumber'" syntax to avoid that. See Evaluating Expressions appendix in Robot Framework User Guide for more details.</status>
+</for>
+<kw name="Create List" owner="BuiltIn">
+<var>@{ListToDB}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="NOT RUN" start="2024-02-18T12:00:38.720571" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<arg>${ListToDB}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" start="2024-02-18T12:00:38.721074" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${InvoiceNumber}</var>
+<arg>${rowInvoiceNumber}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-02-18T12:00:38.721074" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<arg>${InvoiceNumber}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-02-18T12:00:38.721074" elapsed="0.000000"/>
+</kw>
+<kw name="Add row data to list">
+<arg>$items</arg>
+<status status="NOT RUN" start="2024-02-18T12:00:38.721591" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-02-18T12:00:38.711417" elapsed="0.010174">Invalid IF condition: Evaluating expression '\'\r"\' == \'1\'' failed: SyntaxError: unterminated string literal (detected at line 1) (&lt;string&gt;, line 1)
+
+Variables in the original expression "'${headerItems}[0]' == '${InvoiceNumber}'" were resolved before the expression was evaluated. Try using "'$headerItems' == '${InvoiceNumber}'' == '$InvoiceNumber'" syntax to avoid that. See Evaluating Expressions appendix in Robot Framework User Guide for more details.</status>
+</branch>
+<status status="FAIL" start="2024-02-18T12:00:38.710388" elapsed="0.011203">Invalid IF condition: Evaluating expression '\'\r"\' == \'1\'' failed: SyntaxError: unterminated string literal (detected at line 1) (&lt;string&gt;, line 1)
+
+Variables in the original expression "'${headerItems}[0]' == '${InvoiceNumber}'" were resolved before the expression was evaluated. Try using "'$headerItems' == '${InvoiceNumber}'' == '$InvoiceNumber'" syntax to avoid that. See Evaluating Expressions appendix in Robot Framework User Guide for more details.</status>
+</if>
+<status status="FAIL" start="2024-02-18T12:00:38.709359" elapsed="0.012232">Invalid IF condition: Evaluating expression '\'\r"\' == \'1\'' failed: SyntaxError: unterminated string literal (detected at line 1) (&lt;string&gt;, line 1)
+
+Variables in the original expression "'${headerItems}[0]' == '${InvoiceNumber}'" were resolved before the expression was evaluated. Try using "'$headerItems' == '${InvoiceNumber}'' == '$InvoiceNumber'" syntax to avoid that. See Evaluating Expressions appendix in Robot Framework User Guide for more details.</status>
+</branch>
+<status status="FAIL" start="2024-02-18T12:00:38.708852" elapsed="0.013254">Invalid IF condition: Evaluating expression '\'\r"\' == \'1\'' failed: SyntaxError: unterminated string literal (detected at line 1) (&lt;string&gt;, line 1)
+
+Variables in the original expression "'${headerItems}[0]' == '${InvoiceNumber}'" were resolved before the expression was evaluated. Try using "'$headerItems' == '${InvoiceNumber}'' == '$InvoiceNumber'" syntax to avoid that. See Evaluating Expressions appendix in Robot Framework User Guide for more details.</status>
+</if>
 <var name="${element}">Replacement Products;10;kpl;105;24;252;1302;2;</var>
-<status status="PASS" start="2024-02-17T23:18:40.040064" elapsed="0.003177"/>
-</iter>
-<iter>
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.043754" level="INFO">Keyboard Logitech;10;kpl;40;24;96;496;1;</msg>
-<arg>${element}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.043754" elapsed="0.000512"/>
-</kw>
-<kw name="Split String" owner="String">
-<msg time="2024-02-17T23:18:40.044266" level="INFO">@{items} = [ Keyboard Logitech | 10 | kpl | 40 | 24 | 96 | 496 | 1 |  ]</msg>
-<var>@{items}</var>
-<arg>${element}</arg>
-<arg>;</arg>
-<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.044266" elapsed="0.000526"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.044792" level="INFO">${rowInvoiceNumber} = </msg>
-<var>${rowInvoiceNumber}</var>
-<arg>${items}[8]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.044792" elapsed="0.000510"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.045302" level="INFO"/>
-<arg>${rowInvoiceNumber}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.045302" elapsed="0.000512"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.045814" level="INFO">empty</msg>
-<arg>${InvoiceNumber}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.045814" elapsed="0.000513"/>
-</kw>
-<var name="${element}">Keyboard Logitech;10;kpl;40;24;96;496;1;</var>
-<status status="PASS" start="2024-02-17T23:18:40.043754" elapsed="0.002573"/>
-</iter>
-<iter>
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.046841" level="INFO">Brother printer;1;kpl;65;24;15.6;80.6;2;</msg>
-<arg>${element}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.046327" elapsed="0.000514"/>
-</kw>
-<kw name="Split String" owner="String">
-<msg time="2024-02-17T23:18:40.047350" level="INFO">@{items} = [ Brother printer | 1 | kpl | 65 | 24 | 15.6 | 80.6 | 2 |  ]</msg>
-<var>@{items}</var>
-<arg>${element}</arg>
-<arg>;</arg>
-<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.047350" elapsed="0.000000"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.047860" level="INFO">${rowInvoiceNumber} = </msg>
-<var>${rowInvoiceNumber}</var>
-<arg>${items}[8]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.047860" elapsed="0.000510"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.048883" level="INFO"/>
-<arg>${rowInvoiceNumber}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.048370" elapsed="0.000513"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.049393" level="INFO">empty</msg>
-<arg>${InvoiceNumber}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.048883" elapsed="0.000510"/>
-</kw>
-<var name="${element}">Brother printer;1;kpl;65;24;15.6;80.6;2;</var>
-<status status="PASS" start="2024-02-17T23:18:40.046327" elapsed="0.003066"/>
-</iter>
-<iter>
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.049909" level="INFO">Installation Services;5;h;60;24;72;372;1;</msg>
-<arg>${element}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.049909" elapsed="0.000000"/>
-</kw>
-<kw name="Split String" owner="String">
-<msg time="2024-02-17T23:18:40.050418" level="INFO">@{items} = [ Installation Services | 5 | h | 60 | 24 | 72 | 372 | 1 |  ]</msg>
-<var>@{items}</var>
-<arg>${element}</arg>
-<arg>;</arg>
-<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.050418" elapsed="0.000000"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.050936" level="INFO">${rowInvoiceNumber} = </msg>
-<var>${rowInvoiceNumber}</var>
-<arg>${items}[8]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.050418" elapsed="0.000518"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.051449" level="INFO"/>
-<arg>${rowInvoiceNumber}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.050936" elapsed="0.000513"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.051449" level="INFO">empty</msg>
-<arg>${InvoiceNumber}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.051449" elapsed="0.000513"/>
-</kw>
-<var name="${element}">Installation Services;5;h;60;24;72;372;1;</var>
-<status status="PASS" start="2024-02-17T23:18:40.049909" elapsed="0.002053"/>
-</iter>
-<iter>
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.052474" level="INFO">Replacement Products;10;kpl;105;24;252;1302;2;</msg>
-<arg>${element}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.051962" elapsed="0.000512"/>
-</kw>
-<kw name="Split String" owner="String">
-<msg time="2024-02-17T23:18:40.052474" level="INFO">@{items} = [ Replacement Products | 10 | kpl | 105 | 24 | 252 | 1302 | 2 |  ]</msg>
-<var>@{items}</var>
-<arg>${element}</arg>
-<arg>;</arg>
-<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.052474" elapsed="0.000512"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.052986" level="INFO">${rowInvoiceNumber} = </msg>
-<var>${rowInvoiceNumber}</var>
-<arg>${items}[8]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.052986" elapsed="0.000510"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.053496" level="INFO"/>
-<arg>${rowInvoiceNumber}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.053496" elapsed="0.000000"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.054023" level="INFO">empty</msg>
-<arg>${InvoiceNumber}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.053496" elapsed="0.000527"/>
-</kw>
-<var name="${element}">Replacement Products;10;kpl;105;24;252;1302;2;</var>
-<status status="PASS" start="2024-02-17T23:18:40.051962" elapsed="0.002061"/>
-</iter>
-<iter>
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.054536" level="INFO">Cleaning Services;5;h;60;24;72;372;3;</msg>
-<arg>${element}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.054536" elapsed="0.000000"/>
-</kw>
-<kw name="Split String" owner="String">
-<msg time="2024-02-17T23:18:40.055048" level="INFO">@{items} = [ Cleaning Services | 5 | h | 60 | 24 | 72 | 372 | 3 |  ]</msg>
-<var>@{items}</var>
-<arg>${element}</arg>
-<arg>;</arg>
-<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.055048" elapsed="0.000000"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.055559" level="INFO">${rowInvoiceNumber} = </msg>
-<var>${rowInvoiceNumber}</var>
-<arg>${items}[8]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.055559" elapsed="0.000000"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.056073" level="INFO"/>
-<arg>${rowInvoiceNumber}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.056073" elapsed="0.000000"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.056586" level="INFO">empty</msg>
-<arg>${InvoiceNumber}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.056073" elapsed="0.000513"/>
-</kw>
-<var name="${element}">Cleaning Services;5;h;60;24;72;372;3;</var>
-<status status="PASS" start="2024-02-17T23:18:40.054023" elapsed="0.002563"/>
-</iter>
-<iter>
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.057211" level="INFO">Cleaning Wipes;10;kpl;105;24;252;1302;4;</msg>
-<arg>${element}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.057211" elapsed="0.000503"/>
-</kw>
-<kw name="Split String" owner="String">
-<msg time="2024-02-17T23:18:40.058226" level="INFO">@{items} = [ Cleaning Wipes | 10 | kpl | 105 | 24 | 252 | 1302 | 4 |  ]</msg>
-<var>@{items}</var>
-<arg>${element}</arg>
-<arg>;</arg>
-<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.057714" elapsed="0.000512"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.058736" level="INFO">${rowInvoiceNumber} = </msg>
-<var>${rowInvoiceNumber}</var>
-<arg>${items}[8]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.058226" elapsed="0.000510"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.059246" level="INFO"/>
-<arg>${rowInvoiceNumber}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.058736" elapsed="0.000510"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-02-17T23:18:40.059759" level="INFO">empty</msg>
-<arg>${InvoiceNumber}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-02-17T23:18:40.059246" elapsed="0.000513"/>
-</kw>
-<var name="${element}">Cleaning Wipes;10;kpl;105;24;252;1302;4;</var>
-<status status="PASS" start="2024-02-17T23:18:40.057103" elapsed="0.002656"/>
+<status status="FAIL" start="2024-02-18T12:00:38.706801" elapsed="0.015305">Invalid IF condition: Evaluating expression '\'\r"\' == \'1\'' failed: SyntaxError: unterminated string literal (detected at line 1) (&lt;string&gt;, line 1)
+
+Variables in the original expression "'${headerItems}[0]' == '${InvoiceNumber}'" were resolved before the expression was evaluated. Try using "'$headerItems' == '${InvoiceNumber}'' == '$InvoiceNumber'" syntax to avoid that. See Evaluating Expressions appendix in Robot Framework User Guide for more details.</status>
 </iter>
 <var>${element}</var>
 <value>@{rows}</value>
-<status status="PASS" start="2024-02-17T23:18:40.036997" elapsed="0.022762"/>
+<status status="FAIL" start="2024-02-18T12:00:38.692044" elapsed="0.030062">Invalid IF condition: Evaluating expression '\'\r"\' == \'1\'' failed: SyntaxError: unterminated string literal (detected at line 1) (&lt;string&gt;, line 1)
+
+Variables in the original expression "'${headerItems}[0]' == '${InvoiceNumber}'" were resolved before the expression was evaluated. Try using "'$headerItems' == '${InvoiceNumber}'' == '$InvoiceNumber'" syntax to avoid that. See Evaluating Expressions appendix in Robot Framework User Guide for more details.</status>
 </for>
-<status status="PASS" start="2024-02-17T23:18:40.036488" elapsed="0.023781"/>
+<kw name="Get Length" owner="BuiltIn">
+<var>${length}</var>
+<arg>${ListToDB}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="NOT RUN" start="2024-02-18T12:00:38.722106" elapsed="0.000509"/>
+</kw>
+<if>
+<branch type="IF" condition="${length} &gt; ${0}">
+<for flavor="IN">
+<iter>
+<kw name="Split String" owner="String">
+<var>${headerItems}</var>
+<arg>${headerElement}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="NOT RUN" start="2024-02-18T12:00:38.723133" elapsed="0.000516"/>
+</kw>
+<if>
+<branch type="IF" condition="'${headerItems}[0]' == '${InvoiceNumber}'">
+<kw name="Log" owner="BuiltIn">
+<arg>Lasku löytyi</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-02-18T12:00:38.723649" elapsed="0.000000"/>
+</kw>
+<kw name="Add invoice header to db">
+<arg>${headerItems}</arg>
+<status status="NOT RUN" start="2024-02-18T12:00:38.723649" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Add Invoice Row To DB">
+<arg>${rowElement}</arg>
+<status status="NOT RUN" start="2024-02-18T12:00:38.724163" elapsed="0.000000"/>
+</kw>
+<var name="${rowElement}"/>
+<status status="NOT RUN" start="2024-02-18T12:00:38.724163" elapsed="0.000000"/>
+</iter>
+<var>${rowElement}</var>
+<value>@{ListToDB}</value>
+<status status="NOT RUN" start="2024-02-18T12:00:38.724163" elapsed="0.000000"/>
+</for>
+<status status="NOT RUN" start="2024-02-18T12:00:38.723649" elapsed="0.001029"/>
+</branch>
+<status status="NOT RUN" start="2024-02-18T12:00:38.723649" elapsed="0.001029"/>
+</if>
+<var name="${headerElement}"/>
+<status status="NOT RUN" start="2024-02-18T12:00:38.723133" elapsed="0.001545"/>
+</iter>
+<var>${headerElement}</var>
+<value>@{headers}</value>
+<status status="NOT RUN" start="2024-02-18T12:00:38.723133" elapsed="0.001545"/>
+</for>
+<status status="NOT RUN" start="2024-02-18T12:00:38.723133" elapsed="0.001545"/>
+</branch>
+<status status="NOT RUN" start="2024-02-18T12:00:38.722615" elapsed="0.002063"/>
+</if>
+<status status="FAIL" start="2024-02-18T12:00:38.692044" elapsed="0.033150">Invalid IF condition: Evaluating expression '\'\r"\' == \'1\'' failed: SyntaxError: unterminated string literal (detected at line 1) (&lt;string&gt;, line 1)
+
+Variables in the original expression "'${headerItems}[0]' == '${InvoiceNumber}'" were resolved before the expression was evaluated. Try using "'$headerItems' == '${InvoiceNumber}'' == '$InvoiceNumber'" syntax to avoid that. See Evaluating Expressions appendix in Robot Framework User Guide for more details.</status>
 </test>
-<status status="PASS" start="2024-02-17T23:18:39.846812" elapsed="0.214996"/>
+<status status="FAIL" start="2024-02-18T12:00:38.610593" elapsed="0.115835"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0" skip="0">All Tests</stat>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="2" fail="0" skip="0" id="s1" name="Rf Project">Rf Project</stat>
+<stat pass="1" fail="1" skip="0" id="s1" name="Rf Project">Rf Project</stat>
 </suite>
 </statistics>
 <errors>
