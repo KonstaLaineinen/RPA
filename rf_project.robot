@@ -110,7 +110,7 @@ Loop through all invoicerows
         Log    ${element}
         
         
-        @{items}    Split String    ${element}    ,
+        @{items}    Split String    ${element}    ;
         
 
         
@@ -120,9 +120,9 @@ Loop through all invoicerows
         Log    ${InvoiceNumber}
 
         
-        IF    '${rowInvoiceNumber}' == '${InvoiceNumber}'
+        IF    '${rowInvoiceNumber} == ${InvoiceNumber}'
             Log    Lisätään rivejä
-
+            
            
             Add Row Data to List    ${items}
         
@@ -143,7 +143,7 @@ Loop through all invoicerows
 
                  
                 FOR    ${headerElement}    IN    @{headers}
-                    ${headerItems}    Split String    ${headerElement}    ,
+                    ${headerItems}    Split String    ${headerElement}    ;
                     IF    '${headerItems}[0]' == '${InvoiceNumber}'
                         Log    Lasku löytyi
 
@@ -185,8 +185,8 @@ Loop through all invoicerows
         
         
         FOR    ${headerElement}    IN    @{headers}
-            ${headerItems}    Split String    ${headerElement}    ,
-            IF    '${headerItems}[0]' == '${InvoiceNumber}'
+            ${headerItems}    Split String    ${headerElement}    ;
+            IF    "${headerItems}[0]" == "${InvoiceNumber}"
                 Log    Lasku löyty
 
                 
